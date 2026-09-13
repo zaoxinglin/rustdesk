@@ -2280,13 +2280,13 @@ pub fn load_custom_client() {
         // 同时设置验证方法为只使用固定密码
         hard_settings.insert("verification-method".to_string(), "use-permanent-password".to_string());
     }
-    // Ensure remote configuration modification is enabled by default
-    {
-        let mut defaults = config::DEFAULT_SETTINGS.write().unwrap();
-        defaults
-            .entry(config::keys::OPTION_ALLOW_REMOTE_CONFIG_MODIFICATION.to_string())
-            .or_insert("Y".to_string());
-    }
+    // // Ensure remote configuration modification is enabled by default
+    // {
+    //    let mut defaults = config::DEFAULT_SETTINGS.write().unwrap();
+    //    defaults
+    //        .entry(config::keys::OPTION_ALLOW_REMOTE_CONFIG_MODIFICATION.to_string())
+    //        .or_insert("Y".to_string());
+    // }
     // Enable hiding connection management window by default
     {
         let mut defaults = config::DEFAULT_SETTINGS.write().unwrap();
