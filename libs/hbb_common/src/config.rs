@@ -135,9 +135,9 @@ where
 D: de::Deserializer<'de>,
 {
 let s: String =
-de::Deserialize::deserialize(deserializer).unwrap_or(Self::\(default_func());
+de::Deserialize::deserialize(deserializer).unwrap_or(Self::(default_func());
             if s.is_empty() {
-                return Ok(Self::\)default_func());
+                return Ok(Self::)default_func());
 }
 Ok(s)
 }
