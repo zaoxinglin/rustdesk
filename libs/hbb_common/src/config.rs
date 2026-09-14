@@ -2140,8 +2140,17 @@ pub struct LocalConfig {
 
 impl LocalConfig {
     fn load() -> LocalConfig {
-        Config::load_::<LocalConfig>("_local")
+    let mut config = Config::load_::<LocalConfig>("_local");
+    // 首次启动默认关闭更新检查、禁止自动更新
+    if !config.ui_flutter.contains_key("enable-check-update") {
+        config.ui_flutter.insert("enable-check-update".to_string(), "N".to_string());
     }
+    if !config.ui_flutter.contains_key("allow-auto-update") {
+        config.ui_flutter.insert("allow-auto-update".to_string(), "N".to_string());
+    }
+    config
+}
+
 
     fn store(&self) {
         Config::store_(self, "_local");
